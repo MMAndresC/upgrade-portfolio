@@ -1,0 +1,186 @@
+@import "reset";
+@import "responsive";
+@import "fonts";
+
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.header{
+
+    &__logo{
+        width: 40vw;
+        height: 6vh;
+        background-color: bisque;
+        text-align:center;
+        ::after{
+            content:"/>";
+        }
+        ::before{
+            content:"<";
+        }
+        h2{
+            @include tablet{
+                font-size: 2em;
+            }
+            @include desktop{
+                font-size: 4em;
+            }
+        }
+    
+    }
+
+    &__menu{
+        width: 40vw;
+        height: 2.5vh;
+        background-color: aquamarine;
+        display: flex;
+        flex-direction: column;
+
+        &-icon-hamburger{
+            width: 32px;
+            height: 32px;
+            @include tablet{
+                display: none;
+            }
+        }
+
+        &-icon-x{
+            width: 32px;
+            height: 32px;
+            @include mobile{
+                display: none;
+            }
+        }
+        
+        &:hover > ul {
+            @include mobile{
+                display:block;
+                z-index: 2; //asegurarme que el menu quede siempre visible
+            }
+        }
+
+        &-links{
+            display: none;
+
+            &-link{
+                padding: 10px;
+                border-bottom: 1px solid red;
+                border-right: none;
+                
+
+                @include tablet{
+                    border-right:1px solid red;
+                    border-bottom: none;
+                }
+            }
+
+            @include tablet{
+                display:flex;
+            }
+
+        }
+
+        @include tablet{
+            flex-direction: row-reverse;
+            justify-content: space-around;
+        }
+    }
+}
+
+.container{
+
+    &__central{
+        margin-top:8vh; //Mirar como puedo usar gap en vez de margin
+        background-color: cornsilk;
+        position: relative;
+
+        img{
+            display:block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        &-welcome{
+            position:absolute;
+            left:15px;
+            top:-3vh; 
+        }    
+    }
+}
+
+main{
+    padding-top:50px;
+    background-color:rgb(133, 120, 71);
+    display: flex;
+    flex-direction: row;
+}
+
+article{
+    width:50%;
+    p{
+        padding:20px;
+    }
+}
+
+.main__item{
+
+    &-cv-header{
+        display:flex;
+        button{
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            border-color: black;
+            border-width: 5px;
+            background-color: white;
+            margin-left:-13px;
+            z-index:1;
+        }
+
+        span{
+            margin-left:10px;
+        }
+    }
+}
+
+.main__line{
+    width: 5px;
+    height: auto;
+    background-color: red;
+    margin-left:3%;
+    @include tablet {
+        margin-left:26%;
+    }
+    
+}
+
+
+footer{
+    display:flex;
+    flex-direction:column;
+
+    @include tablet{
+    justify-content: center;
+    align-items: center;
+    }
+    
+    h2{
+        padding: 15px;
+    }
+
+    div{
+        display: flex;
+        width:10%;
+        justify-content: space-between;
+    }
+    
+    img{
+        height: 50px;
+        width: 50px;
+    }    
+}
+
